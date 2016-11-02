@@ -6,6 +6,7 @@ This is my entry for the Free Code Camp calculator project
 +  CSS  
 +  Javascript  
 + JQuery  
++ Bootstrap  
 
 ###Author
 +  Melissa Kepler a.k.a Missarachnid  
