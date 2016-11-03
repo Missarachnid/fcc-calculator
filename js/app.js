@@ -102,7 +102,7 @@ $(document).ready(function() {
 
   //Decimal Point Button
   $("#decimal").click(function() {
-    if ($.inArray(".", current) === -1) {
+    if (current.indexOf(".") === -1) {
       current.push($(this).val());
       $input.val(current.join(""));
     } else {
