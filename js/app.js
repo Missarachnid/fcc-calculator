@@ -103,11 +103,18 @@ $(document).ready(function() {
   //Decimal Point Button
   $("#decimal").click(function() {
     if (current.indexOf(".") === -1) {
+      if(current.length === 0){
+        current.push(0);
+        current.push($(this).val());
+        $input.val(current.join(""));
+      }else{
       current.push($(this).val());
       $input.val(current.join(""));
+      }
     } else {
       return false;
     }
+    
   });
 
   //Equal Button
