@@ -1,7 +1,12 @@
+/*Free Code Camp Calculator project
+  Meliss Kepler
+  requirements:
+   *I can add, subtract, multiply and divide two numbers
+  *I can clear the input field with the input 
+  *I can keep chaining mathematical operations together until I hit the equal button, and the calculator will tell me the correct output
+ */
+
 $(document).ready(function() {
-  // I can add, subtract, multiply and divide two numbers
-  //I can clear the input field with the input 
-  // I can keep chaining mathematical operations together until I hit the equal button, and the calculator will tell me the correct output
 
   var calcInput = [];
   var current = [];
@@ -91,16 +96,12 @@ $(document).ready(function() {
     } else if (calcInput.length === 2) {
       check();
       calcInput.push($(this).val());
-      console.log("current at problem" + current);
-    console.log("calcInput at propblem" + calcInput );
     } else {
       $input.val(temp);
       calcInput.push(current.join(""));
       calcInput.push($(this).val());
       current.length = 0;
-      console.log("current at sign " + current);
-    console.log("calcInput at sign " + calcInput );
-    }
+   }
   });
   
   //Positive/Negative toggle
@@ -118,8 +119,8 @@ $(document).ready(function() {
   $("#decimal").click(function() {
     if ($.inArray(".", current) === -1 ) {
       if(current.length === 0){
-        current.push(0);
-        current.push($(this).val);
+        current.push("0");
+        current.push($(this).val());
         $input.val(current.join(""));
       }else{
         current.push($(this).val());
