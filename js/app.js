@@ -116,9 +116,15 @@ $(document).ready(function() {
 
   //Decimal Point Button
   $("#decimal").click(function() {
-    if ($.inArray(".", current) === -1 && current.length !== 0) {
-      current.push($(this).val());
-      $input.val(current.join(""));
+    if ($.inArray(".", current) === -1 ) {
+      if(current.length === 0){
+        current.push(0);
+        current.push($(this).val);
+        $input.val(current.join(""));
+      }else{
+        current.push($(this).val());
+        $input.val(current.join(""));
+      }
     } else {
       return false;
     }
