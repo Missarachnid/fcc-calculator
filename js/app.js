@@ -14,35 +14,46 @@ $(document).ready(function() {
   var currIndex = current.length - 1;
   
 //function to complete an operation after = or multiple sign pushes
-  var check = function() {
+  function check() {
     calcInput.push(current.join(""));
     result = eval(calcInput.join(""));
     lastAnswer = result;
-    calcInput.length = 0;
-    current.length = 0;
+    reset();
+    calcInput.push(result);
+    $input.val(result);
   };
+  
+  //sets array length to 0
+  function reset(){
+   calcInput.length = 0;
+   current.length = 0;
+  }
 
-
+  //display 0 on start
   $input.val(result);
+  
   //keeps focus on the input    
   $(".input").focus(); 
-   $(".input").on('focusOut',function () { 
-  var inputField = $(this); 
-  setTimeout(function() {
-  inputField.focus();
-  }, 10);
+  $(".input").on('focusOut',function () { 
+    var inputField = $(this); 
+    setTimeout(function() {
+    inputField.focus();
+    }, 10);
   });
 
-  //prevents keypresses from operating calculator
+  //prevents non-numbers from being entered
   $input.keypress(function() {
     return false;
   });
 
   //clear button 
   $("#allClear").click(function() {
-    calcInput.length = 0;
-    current.length = 0;
     $input.val("0");
+    reset();
+    result = 0;
+    lastAnswer = 0;
+    temp="";
+    
   });
 
   //back button
@@ -54,10 +65,10 @@ $(document).ready(function() {
       return false;
     }
   });
+
 //CE Button
   $("#last").click(function() {
-    current.length = 0;
-    calcInput.length = 0;
+    reset();
     current.push(lastAnswer);
     $input.val(current.join(""));
   });
@@ -75,21 +86,24 @@ $(document).ready(function() {
       calcInput.push($(this).val());
     } else if (current[currIndex] === ".") {
       return false;
-    }else if (current.length === 0){
+    }else if (current.length === 0 && calcInput === 0){
       return false;
     } else if (calcInput.length === 2) {
       check();
-      calcInput.push(result);
       calcInput.push($(this).val());
-      $input.val(result);
+      console.log("current at problem" + current);
+    console.log("calcInput at propblem" + calcInput );
     } else {
       $input.val(temp);
       calcInput.push(current.join(""));
       calcInput.push($(this).val());
       current.length = 0;
+      console.log("current at sign " + current);
+    console.log("calcInput at sign " + calcInput );
     }
   });
-//Positive/Negative toggle
+  
+  //Positive/Negative toggle
   $("#posNeg").click(function() {
     if (current[0] === "-") {
       current.shift();
@@ -102,19 +116,12 @@ $(document).ready(function() {
 
   //Decimal Point Button
   $("#decimal").click(function() {
-    if (current.indexOf(".") === -1) {
-      //if(current.length === 0){
-        //current.push(0);
-        //current.push($(this).val());
-        //$input.val(current.join(""));
-      //}else{
+    if ($.inArray(".", current) === -1 && current.length !== 0) {
       current.push($(this).val());
       $input.val(current.join(""));
-      //}
     } else {
       return false;
     }
-    
   });
 
   //Equal Button
@@ -127,8 +134,7 @@ $(document).ready(function() {
       return false;
     }
     check();
-    current.push(result);
-    $input.val(current);
+    $input.val(result);
   });
-
+  
 });
