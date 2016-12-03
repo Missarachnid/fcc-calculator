@@ -5,8 +5,8 @@ This is my entry for the Free Code Camp calculator project
 +  HTML  
 +  CSS  
 +  Javascript  
-+ JQuery  
-+ Bootstrap  
++  JQuery  
++  Bootstrap  
 
 ###Author
 +  Melissa Kepler a.k.a Missarachnid  
