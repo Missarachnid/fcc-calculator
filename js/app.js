@@ -26,7 +26,7 @@ $(document).ready(function() {
     reset();
     calcInput.push(result);
     $input.val(result);
-  };
+  }
   
   //sets array length to 0
   function reset(){
