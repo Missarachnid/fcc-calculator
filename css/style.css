@@ -7,7 +7,7 @@ body {
   height: 100%;
 }
 
-div.row {
+.row {
   padding: 10px;
   float: none;
   width: auto;
@@ -51,7 +51,7 @@ div.row {
   max-width: 260px;
 }
 
-button.btn {
+.btn {
   background: linear-gradient(#999, #888);
   box-shadow: 0 1px 0 #666, 0 3px 0 #444, 0 3px 3px rgba(0, 0, 0, 0.6);
   width: 46px;
