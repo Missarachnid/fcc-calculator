@@ -1,17 +1,17 @@
-#Free Code Camp Calculator
+#  Free Code Camp Calculator
 This is my entry for the Free Code Camp calculator project
 
-###Built With
+###  Built With
 +  HTML  
 +  CSS  
 +  Javascript  
 +  JQuery  
 +  Bootstrap  
 
-###Author
+###  Author
 +  Melissa Kepler a.k.a Missarachnid  
 
-###Acknowledgments
+###  Acknowledgments
 +  Free Code Camp
 
-###Project can be found here: https://missarachnid.github.io/fcc-calculator/
+###  Project can be found [here](https://missarachnid.github.io/fcc-calculator/)
